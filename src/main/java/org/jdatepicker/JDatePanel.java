@@ -494,16 +494,16 @@ public class JDatePanel extends JComponent implements DatePanel {
 
                     public void componentResized(ComponentEvent e) {
                         // The new size of the table
-                        final double w = e.getComponent().getSize().getWidth();
-                        final double h = e.getComponent().getSize().getHeight();
+                        double w = e.getComponent().getSize().getWidth();
+                        double h = e.getComponent().getSize().getHeight();
 
                         // Set the size of the font as a fraction of the width or the height, whichever is smallest
-                        final float sw = (float) Math.floor(w / 16);
-                        final float sh = (float) Math.floor(h / 8);
+                        float sw = (float) Math.floor(w / 16);
+                        float sh = (float) Math.floor(h / 8);
                         dayTable.setFont(dayTable.getFont().deriveFont(Math.min(sw, sh)));
 
                         // Set the row height as a fraction of the height
-                        final int r = (int) Math.floor(h / 6);
+                        int r = (int) Math.floor(h / 6);
                         dayTable.setRowHeight(r);
                     }
 
@@ -1054,8 +1054,8 @@ public class JDatePanel extends JComponent implements DatePanel {
         /**
          * Part of TableModel, day
          *
-         * previous month (... -1, 0) ->
-         * current month (1...DAYS_IN_MONTH) ->
+         * previous month (... -1, 0) 
+         * current month (1...DAYS_IN_MONTH) 
          * next month (DAYS_IN_MONTH + 1, DAYS_IN_MONTH + 2, ...)
          */
         public Object getValueAt(int rowIndex, int columnIndex) {
