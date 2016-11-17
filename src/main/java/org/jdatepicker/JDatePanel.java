@@ -319,9 +319,10 @@ public class JDatePanel extends JComponent implements DatePanel {
          * Initialise the control.
          */
         private void initialise() {
+			int dpiScaling = (int)Toolkit.getDefaultToolkit().getScreenResolution()/86;
             this.setLayout(new java.awt.BorderLayout());
-            this.setSize(200, 180);
-            this.setPreferredSize(new java.awt.Dimension(200, 180));
+            this.setSize(200*dpiScaling, 180*dpiScaling);
+            this.setPreferredSize(new java.awt.Dimension(200*dpiScaling, 180*dpiScaling));
             this.setOpaque(false);
             this.add(getNorthPanel(), java.awt.BorderLayout.NORTH);
             this.add(getSouthPanel(), java.awt.BorderLayout.SOUTH);
@@ -1014,7 +1015,7 @@ public class JDatePanel extends JComponent implements DatePanel {
          * Part of TableModel, day
          */
         public String getColumnName(int columnIndex) {
-            ComponentTextDefaults.Key key = ComponentTextDefaults.Key.getDowKey(((firstDayOfWeek - 1) + columnIndex) % 7);
+            ComponentTextDefaults.Key key = ComponentTextDefaults.Key.getDowKey((((firstDayOfWeek - 1) + columnIndex) % 7) + 1);
             return getTexts().getText(key);
         }
 
